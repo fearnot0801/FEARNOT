@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEARNOT</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<!-- Copyright © 2023 parkseoyul. All Right Reserved -->
+<body>
+    <section class="header">
+        <div class="header_box">
+            <div><a href="index.html"><img class="logo" src="image/FEARNOT_transparent_logo.png"></a></div>
+            <div class="nav_bar">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#">BOARD</a></li>
+                    <li><a href="./schedule/schedule2023.04.html">SCHEDULE</a></li>
+                    <li><a href="#">NOTICE</a></li>
+                </ul>
+            </div> 
+            <div class="login">
+                <ul>
+                    <li><a href="#">SIGN IN</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <input type="checkbox" id="menuicon">
+                <label for="menuicon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="sidebar">
+                    <div>
+                        <ul class="sidebar_navbar">
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="#">BOARD</a></li>
+                            <li><a href="./schedule/schedule2023.04.html">SCHEDULE</a></li>
+                            <li><a href="#">NOTICE</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="sidebar_login">
+                            <li><a href="#">SIGN IN</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="slider">
+        <input type="radio" name="slide" id="slide1" class="first" value="rgba(129,165,249,1)" checked>
+        <input type="radio" name="slide" id="slide2" class="second" value="rgba(38,38,38,1)">
+        <input type="radio" name="slide" id="slide3" class="third" value="rgba(154,120,196,1)">
+        <input type="radio" name="slide" id="slide4" class="fourth" value="rgba(64,64,64,1)">
+        <ul id="imgholder" class="imgs">
+            <li><img class="slide_img" src="image/slideimg1.jpg"></li>
+            <li><img class="slide_img" src="image/slideimg2.jpg" id="move_middle"></li>
+            <li><img class="slide_img" src="image/slideimg3.png" id="move_middle"></li>
+            <li><img class="slide_img" src="image/slideimg4.jpg" id="move_middle"></li>
+        </ul>
+        <div>
+            <img class="lesserafim" src="image/le sserafim.png">
+        </div>
+        <div class="bullets">
+            <label for="slide1">&nbsp;</label>
+            <label for="slide2">&nbsp;</label>
+            <label for="slide3">&nbsp;</label>
+            <label for="slide4">&nbsp;</label>
+        </div>
+    </div>
+    <section class="news">
+        <div class="news_box">
+            <a href="https://www.youtube.com/watch?v=tIN8f9gmH4M&ab_channel=HYBELABELS"  target="_blank" class="news_link">
+                <div><img class="lesserafim_mainlogo" src="image/LESSERAFIM mainlogo ghostwhite.png"></div>
+                <div><img class="unforgiven" src="image/unforgiven ghostwhite.png"></div>
+                <div><p>2023.05.01&nbsp;&nbsp;18:00 KST</p></div>
+            </a>
+        </div>
+    </section>
+    <div class="footer">
+        <div class="footer_box">
+            <div class="footer_ex">
+                <li>- 이 페이지에 첨부된 이미지는 전부 <a href="https://www.sourcemusic.com/"  target="_blank">https://www.sourcemusic.com/</a> (SOURCE MUSIC) 에게 저작권이 있습니다.</li>
+                <li>- <span><a href="#">이용약관</a></span> 을 반드시 준수하시고 홈페이지를 이용해주세요.</li>
+            </div>
+            <div class="footer_bar"></div>
+            <div class="footer_nav">
+                <div class="copyright">
+                    <p>Copyright © 2023 parkseoyul. All Right Reserved.</p>
+                </div>
+                <div class="footer_nav_div">
+                    <li><a href="index.html">HOME</a></li>
+                    <li>|</li>
+                    <li><a href="#">BOARD</a></li>
+                    <li>|</li>
+                    <li><a href="./schedule/schedule2023.04.html">SCHEDULE</a></li>
+                    <li>|</li>
+                    <li><a href="#">NOTICE</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const header = document.querySelector('.header');
+        const radios = document.querySelectorAll('input[type="radio"]');
+        const sidebar = document.querySelector('.sidebar');
+        let index = 0;
+
+        setInterval(() => {
+            radios[index].checked = false;
+            index = (index + 1) % radios.length;
+            radios[index].checked = true;
+
+            const color = radios[index].value;
+            header.style.backgroundColor = color;
+            sidebar.style.backgroundColor = color;
+        }, 8000);
+
+        radios.forEach((radio) => {
+            radio.addEventListener('change', () =>{
+                if (radio.checked) {
+                    header.style.backgroundColor = radio.value;
+                }
+            })
+        })
+    </script>
+</body>
+</html>
